@@ -1,12 +1,13 @@
 import express from 'express';
+import cors from 'cors'
 import appConfig from './config/appConfig.js';
 import router from './Router/Routes.js'
 
-const {PORT,GOOGLE_PRIVATE_KEY,GOOGLE_SHEET_CLIENT_EMAIL} = appConfig
+const {PORT} = appConfig
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 app.use('/',router)
 
 app.listen(PORT,()=>{
